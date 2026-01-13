@@ -1,0 +1,49 @@
+.profile-card-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: start;
+    margin: 1rem;
+
+    .company-logo-container {
+        flex: 0 0 5rem;
+        height: auto;
+    }
+
+    .role-details {
+        *:not(:first-child) {
+            margin-top: 0.5rem;
+        }
+        :last-child {
+            margin-bottom: 0.5rem;
+        }
+
+        h1 {
+            font-size: large;
+            font-weight: bold;
+        }
+         
+        h3 {
+            font-size: medium;
+        }
+
+        ul {
+            margin-top: 0.5rem;
+            margin-left: 1rem;
+            
+            li {
+                list-style-type: circle;
+            }
+        }
+    }
+}
+
+
+@media screen and (min-width: 768px) {
+    .profile-card-container {
+
+        .company-logo-container {
+            // width: 10rem;
+        }
+    }
+}

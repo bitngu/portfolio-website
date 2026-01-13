@@ -1,0 +1,100 @@
+.media-viewer-modal-wrapper {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9998;
+    width: 100dvw;
+    height: 100dvh;
+    background-color: gray;
+
+    .media-viewer-modal {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        min-width: 250px;
+        width: 75%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 9999;
+        padding: 2rem 2.5rem;
+        background-color: aqua;
+
+
+        .content {
+            position: relative;
+            background-color: aqua;
+
+            .img-wrapper {
+                max-height: 32rem;
+                overflow: hidden;
+                
+                img {
+                    width: 100%;
+                    height: auto;
+                    object-fit: cover;
+                }
+            }
+
+            .close {
+                position: absolute;
+                background-color: transparent;
+                cursor: pointer;
+                top: -2rem;
+                right: -2.5rem;
+                padding: 0.5rem;
+            }
+
+            .left-arrow {
+                position: absolute;
+                top: 50%;
+                left: -2rem;
+                padding: 0.5rem;
+                background-color: transparent;
+                cursor: pointer;
+            }
+
+            .right-arrow {
+                position: absolute;
+                top: 50%;
+                right: -2rem;
+                padding: 0.5rem;
+                background-color: transparent;
+                cursor: pointer;
+            }
+
+            .carousel-dots {
+                display: flex;
+                gap: 0.25rem;
+                background-color: transparent;
+                padding-top: 0.5rem;
+                justify-content: center;
+                position: absolute;
+                bottom: -1.5rem;
+                left: 45%;
+
+                button {
+                    cursor: pointer;
+
+                    &.active {
+                        background-color: red;
+                        width: 20px;
+
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .media-viewer-modal-wrapper {
+
+        .media-viewer-modal {
+            width: 40%;
+        }
+
+    }
+}

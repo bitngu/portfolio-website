@@ -1,0 +1,189 @@
+{
+    "about": {
+        "me": "Software engineer with 3 YoE in QA and Frontend development.",
+        "education": {
+            "school": "University of California, Davis",
+            "endDate": "June, 2022",
+            "emphasis": {
+                "major": "Statistics",
+                "minor": "Computer Science"
+            },
+            "logo": ""
+        }
+    },
+    "portfolio": {
+        "description": "Hello",
+        "items": [
+            {
+                "name": "Features at IBM",
+                "date": "01/05/2026",
+                "shortDesc": "A collection of awesome features that I got to work on while working at IBM Aspera",
+                "path": "/assets/IBM",
+                "description": "",
+                "type": [
+                    "web"
+                ],
+                "languages": [
+                    "React.tsx",
+                    "HTML",
+                    "CSS"
+                ],
+                "links": [
+                    "github"
+                ]
+            },
+            {
+                "name": "Tree View",
+                "date": "12/15/2025",
+                "shortDesc": "A React component that allows user to browse and manage data between local and cloud storage",
+                "path": "/assets/TreeView",
+                "description": "",
+                "type": [
+                    "web"
+                ],
+                "languages": [
+                    "React.tsx",
+                    "HTML",
+                    "CSS"
+                ],
+                "links": [
+                    "github"
+                ]
+            },
+            {
+                "name": "PawsitiveID",
+                "date": "07/28/2025",
+                "shortDesc": "A hackathon project that my friend and I worked on to develop an iOS app to utilize Google Maps API to help people find their lost pets",
+                "path": "/assets/PawsitiveID",
+                "description": "",
+                "type": [
+                    "web"
+                ],
+                "languages": [
+                    "React.tsx",
+                    "HTML",
+                    "CSS"
+                ],
+                "links": [
+                    "github"
+                ]
+            },
+            {
+                "name": "Farm PPE",
+                "date": "04/13/2022",
+                "shortDesc": "A React website focusing on providing resources for local farmers in Yolo county",
+                "path": "/assets/FarmPPE",
+                "description": "While working as a student programmer at UC Davis, I got to developed my first website outside of school work. This was a challenging task as there were no concepts, design or leads. The goal was to create a friendly UI and UX that allows user to digest the information",
+                "type": [
+                    "web"
+                ],
+                "languages": [
+                    "React.js",
+                    "HTML",
+                    "CSS"
+                ],
+                "links": [
+                    "https://farmppe.netlify.app"
+                ]
+            },
+            {
+                "name": "Tractivity",
+                "date": "06/19/2021",
+                "shortDesc": "A fitness web application that help users keep track of their daily activities and plan for future activity",
+                "path": "/assets/Tractivity",
+                "imageAlignment": "center center",
+                "type": [
+                    "school"
+                ],
+                "links": [
+                    "https://github.com/bitngu/Tractivity"
+                ]
+            },
+            {
+                "name": "LoL - Toxic behaviors",
+                "date": "11/12/2019",
+                "shortDesc": "A school project to analyze toxic behaviors from the popular MOBA game, League of Legends. Web scraped data from their official forumns and OP.GG and used NLP to attempt to find patterns in player behaviors",
+                "path": "/assets/LoL",
+                "imageAlignment": "center center",
+                "type": [
+                    "school"
+                ],
+                "links": [
+                    "https://github.com/bitngu/Toxicity-in-a-gaming-comunnity"
+                ]
+            },
+            {
+                "name": "Battleship",
+                "date": "03/12/2018",
+                "shortDesc": "A text based implementation of Battleship where users can battle other players or an AI",
+                "path": "/assets/Battleship",
+                "type": [
+                    "school"
+                ],
+                "links": [
+                    "https://github.com/bitngu/Games"
+                ]
+            }
+        ]
+    },
+    "experiences": {
+        "current": [],
+        "past": [
+            {
+                "companyName": "IBM",
+                "title": "Software Engineer",
+                "from": "Nov 2024",
+                "to": "Jan 2026",
+                "description": [
+                    "Worked on the frontend for SaaS and on-premise enterprise web application by collaborating with design and product management to scope and plan features for our customers",
+                    "Developed a file tree structure component for managing content on local and cloud storage by focusing on UX to create similar functionality to standard OS file trees",
+                    "Migrated charting system to ChartJs to improve processing of large transfer volume and better handling of real-time rendering"
+                ],
+                "logo": "/assets/CompanyLogos/ibm.png",
+                "type": "Full-time",
+                "skills": ["ReactJs", "Typescript", "HTML","SCSS"
+                ]
+            },
+            {
+                "companyName": "Linksys",
+                "title": "Automation Quality Engineer",
+                "from": "Oct 2023",
+                "to": "May 2024",
+                "description": [
+                    "Lead the development for unit, functional, and regression test suites for Linksys hardware and API services utilizing PyTest and Selenium",
+                    "Improved existing Wi-Fi test bed automations and leveraged AWS S3 and Microsoft Sharepoint API to reduce 75% manual data aggregation from the QA Team"
+                ],
+                "logo": "/assets/CompanyLogos/linksys.png",
+                "type": "Full-time",
+                "skills": ["Python", "Aws S3", "Microsoft Sharepoint API"]
+            },
+            {
+                "companyName": "Qualcomm",
+                "title": "System Test Engineer",
+                "from": "Sept 2022",
+                "to": "May 2023",
+                "description": [
+                    "Executed and validated the mobile embedded system boot-up test plan throughout the SDLC, leveraging Python to improve test coverage by 25%",
+                    "Developed Python automation to collect KPI metrics and generate Excel reports, reducing the process from 4 hours to 10 minutes",
+                    "Designed a targeted test plan to validate encryption and decryption process for existing system feature"
+                ],
+                "logo": "/assets/CompanyLogos/qualcomm.png",
+                "type": "Full-time",
+                "skills": ["Python", "ADB", "JTAG"]
+            },
+            {
+                "companyName": "UC Davis, School of Veterinary Medicine",
+                "title": "Student Programmer",
+                "from": "Aug 2021",
+                "to": "June 2022",
+                "description": [
+                    "Designed, developed, and maintained a Single-page web application in React for the department of Center for Animal Disease Modeling and Surveilance",
+                    "Utilized Python and Postman to automate web scraping and preprocess raw data, transforming it into structured datasets for ingestion"                    
+                ],
+                "logo": "/assets/CompanyLogos/cadms.png",
+                "type": "Part-time",
+                "skills": ["Python","ReactJs", "HTML", "CSS"]
+            }
+        ]
+    }
+}
