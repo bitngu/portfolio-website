@@ -1,0 +1,69 @@
+.login {
+    height: 100dvh;
+    background: linear-gradient(to bottom, #0078D7 0%, #006CC1 35%, #005A9E 70%, #003A8F 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .img-container {
+        width: 120px;
+        height: 120px;
+        border-width: 1px;
+        border-style: solid;
+        margin-right: 1.5rem;
+    }
+
+    .password-container {
+        display: flex;
+        flex-direction: row;
+        border-style: none;
+        margin-top: 3rem;
+        position: relative;
+
+        &::before {
+            content: "Enter Password";
+            position: absolute;
+            top: -1.5rem;
+            left: 0;
+            font-size: 1rem;
+            color: #FFFF;
+        }
+
+        input,
+        button {
+            padding: 0.75rem 1rem;
+            opacity: 1;
+        }
+
+        input {
+            border-style: none;
+            background-color: #FFFF;
+            box-shadow: rgb(10, 10, 10) -1px -1px 0px 0px inset, rgb(255, 255, 255) 1px 1px 0px 0px inset, rgb(128, 128, 128) -2px -2px 0px 0px inset, rgb(222, 222, 222) 2px 2px 0px 0px inset;
+        }
+
+        button {
+            background-color: rgb(192, 192, 192);
+            box-shadow: rgb(10, 10, 10) -1px -1px 0px 0px inset, rgb(255, 255, 255) 1px 1px 0px 0px inset, rgb(128, 128, 128) -2px -2px 0px 0px inset, rgb(222, 222, 222) 2px 2px 0px 0px inset;
+            &:hover {
+                cursor: pointer;
+                background-color: rgb(176, 176, 176);
+                box-shadow:
+                    rgb(255, 255, 255) -1px -1px 0px 0px inset,
+                    rgb(10, 10, 10) 1px 1px 0px 0px inset,
+                    rgb(222, 222, 222) -2px -2px 0px 0px inset,
+                    rgb(128, 128, 128) 2px 2px 0px 0px inset;
+            }
+        }
+    }
+}
+
+
+// @media screen and (min-width: 768px) {
+//     .login {
+//         .password-container {
+//             // margin-left: 2rem;
+//         }
+//     }
+    
+// }

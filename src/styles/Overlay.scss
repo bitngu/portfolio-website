@@ -1,0 +1,108 @@
+.overlay {
+    background-color: transparent;
+    position: relative;
+
+    .hr-container {
+        position: absolute;
+        height: 100dvh;
+        width: 100%;
+
+        .hr {
+            height: 1px;
+            margin-bottom: 2px;
+            opacity: 0.1;
+            z-index: 9999;
+            background: linear-gradient(to top,rgba(0, 0, 0, 0.00) 0%,rgba(0, 0, 0, 1) 45%,rgba(0, 0, 0, 0.00) 100%);
+            
+
+            &.even {
+                animation-name: jitterEven;
+                animation-duration: 200ms;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+                animation-direction: alternate;
+                -webkit-animation-name: jitterEven;
+                -webkit-animation-duration: 200ms;
+                -webkit-animation-iteration-count: infinite;
+                -webkit-animation-timing-function: linear;
+                -webkit-animation-direction: reverse;
+
+            }
+
+            &.odd {
+                animation-name: jitterOdd;
+                animation-duration: 150ms;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+                animation-direction: alternate;
+                -webkit-animation-name: jitterEven;
+                -webkit-animation-duration: 150ms;
+                -webkit-animation-iteration-count: infinite;
+                -webkit-animation-timing-function: linear;
+                -webkit-animation-direction: reverse;
+            }
+        }
+    }
+
+    &::before {
+        content: "";
+        width: 100%;
+        height: 3px;
+        background-color: darkgrey;
+        opacity: 0.35;
+        position: absolute;
+        bottom: 0;
+        z-index: 9998;
+
+        animation-name: upDown;
+        animation-duration: 12s;
+        animation-delay: 3s;
+        animation-iteration-count: infinite;
+        animation-direction: reverse;
+        animation-timing-function: linear;
+        animation-fill-mode: forwards;
+        -webkit-animation-name: upDown;
+        -webkit-animation-duration: 12s;
+        -webkit-animation-delay: 3s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-direction: reverse;
+        -webkit-animation-timing-function: linear;
+    }
+
+}
+
+@keyframes upDown {
+    0% {
+        transform: translateY(0);
+    }
+
+    10% {
+        transform: translateY(100dvh);
+    }
+
+    100% {
+        transform: translateY(100dvh);
+    }
+}
+
+@keyframes jitterOdd {
+    0% {
+        transform: translateY(0px);
+    }
+
+    100% {
+        transform: translateY(1px);
+
+    }
+}
+
+@keyframes jitterEven {
+    0% {
+        transform: translateY(1px);
+    }
+
+    100% {
+        transform: translateY(0);
+
+    }
+}
