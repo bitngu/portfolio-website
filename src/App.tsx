@@ -5,6 +5,8 @@ import './index.css'
 import './App.css'
 import { BrowserRouter} from 'react-router-dom'
 import { AppRoutes } from './Router'
+import { Login } from './Views/Login'
+import { Overlay } from './Views/Overlay'
 function App() {
 
   const fakeData = () => {
@@ -21,10 +23,8 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Navbar />
-      {/* <MediaViewer id='first' data={fakeData()}/> */}
-      <AppRoutes />
-      <Footer />
+      <Overlay/>
+      <Login />
     </BrowserRouter>
   )
 }
