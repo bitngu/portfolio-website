@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react';
 import login from '../assets/logos/cube.svg'
 import '../styles/Login.scss'
+import {useNavigate} from 'react-router-dom';
 
 export const Login = () => {
     const password = "ilyMatthew&Robert"
+    const navigator = useNavigate();
 
     const [index, setIndex] = useState(0);
     const onSubmit = () => {
-        console.log('hello');
+        navigator('/desktop');
     }
 
     useEffect(() => {

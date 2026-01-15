@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../styles/Overlay.scss';
 
 export const Overlay = () => {
@@ -14,12 +14,10 @@ export const Overlay = () => {
         return document.removeEventListener('resize', handleResize);
     }, []);
 
-    console.log(numLines);
-
     return (<div className="overlay">
         <div className='hr-container'>
         {Array.from({length: numLines}, (_, index)=> {            
-            return <div className={`hr  ${index % 2=== 0 ? 'even': 'odd'} `}></div>
+            return <div key={index} className={`hr  ${index % 2=== 0 ? 'even': 'odd'} `}></div>
         })}
         </div>
     </div>)
