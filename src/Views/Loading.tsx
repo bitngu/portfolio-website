@@ -7,7 +7,7 @@ export const Loading = () => {
             <div className="logo">
                 <p className="top">Microsoft</p>
                 <p className="mid">Windows<span>xp</span></p>
-                <p className="bottom">Home Edition</p>
+                <p className="bottom">Portfolio Edition</p>
             </div>
             <div className="container">
                 <div></div>

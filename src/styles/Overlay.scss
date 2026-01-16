@@ -1,6 +1,7 @@
 .overlay {
     background-color: transparent;
     position: relative;
+    pointer-events: none;
 
     .hr-container {
         position: absolute;
@@ -14,7 +15,6 @@
             z-index: 9999;
             background: linear-gradient(to top,rgba(0, 0, 0, 0.00) 0%,rgba(0, 0, 0, 1) 45%,rgba(0, 0, 0, 0.00) 100%);
             
-
             &.even {
                 animation-name: jitterEven;
                 animation-duration: 200ms;
