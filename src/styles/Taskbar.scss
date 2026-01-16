@@ -1,0 +1,47 @@
+#taskbar {
+    display: flex;
+    color: #FFF;
+    background-color: rgb(59, 119, 188);
+    justify-content: space-between;
+    height: 3rem;
+
+    .app-list {
+        display: flex;
+        gap: 0.5rem;
+
+        .pinned-items {
+            gap: 0.5rem;
+            display: inline-flex;
+            overflow: hidden;
+
+            .taskbar-item {
+                display: flex;
+                align-items: center;
+                height: 100%;
+
+                &:hover, &:active {
+                    background: linear-gradient(to bottom,rgba(0, 0, 0, 0.1) 10%,rgba(59, 119, 188, 1) 50%,rgba(59, 119, 188, 1) 100%);
+                    transform: translateY(1px);
+                }
+            }
+        }
+    }
+
+    .misc {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        background-color: rgb(65, 141, 206);
+
+        .taskbar-item {
+            &:first-child {
+                padding-left: 1rem;
+            }
+            
+            &:last-child {
+                margin-left: 1rem;
+                margin-right: 1rem;
+            }
+        }
+    }
+}

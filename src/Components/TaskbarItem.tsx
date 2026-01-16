@@ -1,7 +1,8 @@
+import '../styles/TaskbarItem.scss';
 
 type TaskbarItemProps = {
-    className? string;
-    content: string;
+    className?: string;
+    content?: string;
     icon?: string;
     onClick?: () => void;
     showName?: boolean;
@@ -13,7 +14,7 @@ export const TaskbarItem = (props: TaskbarItemProps) => {
             {props.icon ? <div className="icon-container">
                 <img src={props.icon}></img>
             </div> : null}
-            <div className="content">{props.content}</div>
+            {props.content ? <div className="content">{props.content}</div> : null}
         </div>
     )
 

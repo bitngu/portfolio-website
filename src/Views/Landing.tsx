@@ -11,7 +11,7 @@ export const Landing = (): React.ReactNode => {
 
     useEffect(() => {
         const handleKeyDown = (event: KeyboardEvent) => {
-              if (event.key === 'Enter') {
+              if (!loading && event.key === 'Enter') {
                 setIntro(false);
                 setLoading(true);
             }
