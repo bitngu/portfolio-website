@@ -24,3 +24,25 @@ export default App
  * 
  * 
  */
+
+
+
+// how to start adding active tabs?
+
+// taskbar and desktop both share apps that can be open.
+// maybe need a dataservice to keep track of the active apps
+// ideally, when they click, it should set it to be selected.
+// maybe desktop should keep a list of active apps.
+// onclick, append to list of active apps.
+// and from there render the items.
+// need to create random IDs for them;
+
+
+// on initial load we add the active app (if we want to)
+// we do a map; generate a randomId, and store a taskbarItem:
+// 1231: [{}]
+// and during on click for the desktop app; we just do 2nd step and add to the data
+// we define the onCLick(itemTask): void;
+//probably need to add an additional param: isopen
+
+

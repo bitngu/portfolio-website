@@ -1,15 +1,23 @@
 import '../styles/StartMenu.scss'
 import xp from '/assets/taskbar/xp.png'
 
-// why suddenly i'm no longer able to import scss?
-
 type StartMenuProps = {
     onClick?: ()=> void;
 }
 
-export const StartMenu = (): React.ReactNode => {
+export const StartMenu = (props: StartMenuProps): React.ReactNode => {
+
+    const onClick = () => {
+        
+        if (typeof props.onClick === 'function'){
+            props.onClick();
+        }
+
+
+    }
+
     return (
-        <div className="start-menu">
+        <div className="start-menu" onClick={onClick}>
             <div className="xp-logo">
                 <img src={xp} alt='xp-logo'/>
             </div>

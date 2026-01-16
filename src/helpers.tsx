@@ -13,6 +13,10 @@ export const useWidth = () => {
 }
 
 
+export const getRandomId = (length: number = 16): string => {
+  return Math.random().toString(36).substring(2, length + 2);
+};
+
 export default {
     useWidth,
 }
