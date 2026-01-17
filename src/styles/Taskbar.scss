@@ -20,16 +20,15 @@
             display: flex;
             flex-direction: column;
             flex-wrap: wrap;
+            align-content: flex-start;
             align-items: center;
             overflow-x: auto;
             overflow-y: hidden;
             height: 100%;
-            width: calc(50% + 4rem);
+            flex: 1;
 
             div {
                 padding: 0.25rem;
-                flex: 1;
-
                 p {
                     pointer-events: none;
                 }
@@ -44,30 +43,21 @@
 
         .taskbar-item {
             &:first-child {
-                padding-left: 0.25rem;
+                margin-left: 0.5rem;
             }
 
             &:last-child {
                 padding-left: 1rem;
+                margin-right: 0.5rem;
                 width: 3rem;
             }
         }
     }
 }
 
-@media screen and (min-width: 425px) {
-    .misc {
-        .taskbar-item {
-            &:first-child {
-                padding-left: 0.5rem;
-            }
-        }
-    }
-}
-
-
 @media screen and (min-width: 768px) {
     #taskbar {
+
         .misc {
             gap: 0.5rem;
             padding-right: 0.5rem;
