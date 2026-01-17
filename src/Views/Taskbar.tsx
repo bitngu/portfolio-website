@@ -3,12 +3,8 @@ import { useEffect, useState } from "react";
 import { TaskbarItem } from "../Components/TaskbarItem"
 import network from '/assets/taskbar/network.png'
 import volume from '/assets/taskbar/volume.png'
-import msn from '/assets/taskbar/msn.png'
-import calculator from '/assets/taskbar/calculator.png'
-import documents from '/assets/taskbar/documents.png'
-import ie from '/assets/taskbar/internet_explorer.png'
-import paint from '/assets/taskbar/paint.png'
 import { StartMenu } from './StartMenu';
+import { appService, calculatorApp, msnApp, paintApp} from '../classes/AppData';
 
 
 export const Taskbar = (): React.ReactNode => {
@@ -22,7 +18,6 @@ export const Taskbar = (): React.ReactNode => {
     }
 
     const [time, setTime] = useState(updateTime());
-    const [width, setWidth] = useState(window.innerWidth);
 
     useEffect(() => {
         const intervalID = setInterval(() => {
@@ -34,53 +29,29 @@ export const Taskbar = (): React.ReactNode => {
         }
     }, [])
 
-    useEffect(() => {
-        const onResize = () => setWidth(window.innerWidth);
-
-        window.addEventListener('resize', onResize);
-        return () => window.removeEventListener('resize', onResize);
-    })
-
-
     const startMenuClick= () => {
         console.log('StartMenuClicked');
     }
-
-    // const onClick = () => {
-    //     setActive(())
-    // }
-
-    // can be overridden if item is active
-    const hideContentOnSMobile = width < 480;
-    const hideContentOnLMobile = width < 576;
-
-    
-
 
     return (
         <footer id='taskbar'>
             <div className="app-list">
                 <StartMenu onClick={startMenuClick}/>
-                {width >= 768 && <div className='pinned-items'>
-                    <TaskbarItem {...{ icon: msn, className: 'msn' }}></TaskbarItem>
-                    <TaskbarItem {...{ icon: calculator, className: 'calculator' }}></TaskbarItem>
-                    <TaskbarItem {...{ icon: documents, className: 'documents' }}></TaskbarItem>
-                    <TaskbarItem {...{ icon: paint, className: 'paint' }}></TaskbarItem>
-                </div>}
+                <div className='pinned-items'>
+                    {[msnApp, calculatorApp, paintApp].map(app => {
+                        return <TaskbarItem key={app.id + 'pinned-item'} task={{...app, hideName: true}}/>
+                    })}
+                </div>
                 <div className='active-apps'>
-                    <TaskbarItem {...{ content: 'About', icon: ie, className: 'active-ie', hide: {content: hideContentOnSMobile}}}></TaskbarItem>
-                    <TaskbarItem {...{ content: 'About', icon: ie, className: 'active-ie', hide: {content: hideContentOnSMobile}}}></TaskbarItem>
-                    <TaskbarItem {...{ content: 'About', icon: ie, className: 'active-ie', hide: {content: hideContentOnSMobile}}}></TaskbarItem>
-                    <TaskbarItem {...{ content: 'About', icon: ie, className: 'active-ie', hide: {content: hideContentOnSMobile}}}></TaskbarItem>
-                    <TaskbarItem {...{ content:'Portfolio', icon: documents, className: 'documents', hide: {content: hideContentOnSMobile}}}></TaskbarItem>
-                    {/* should be mail */}
-                    <TaskbarItem {...{ content: 'Contact', icon: paint, className: 'paint', hide: {content: hideContentOnSMobile}}}></TaskbarItem>
+                    {appService.activeApps.map(app => {
+                        return <TaskbarItem key={app.id + 'active-apps'} task={app}/>
+                    })}
                 </div>
             </div>
             <div className="misc">
-                <TaskbarItem {...{ icon: network, className: 'network', hide: {icon: hideContentOnLMobile}}}></TaskbarItem>
-                <TaskbarItem {...{ icon: volume, className: 'volume', hide: {icon: hideContentOnLMobile}}}></TaskbarItem>
-                <TaskbarItem {...{ content: time, showName: true, className: 'locale-clock'}}></TaskbarItem>
+                <TaskbarItem task={{id: 'network', icon: network, displayName:'Network', hideName: true}}/>
+                <TaskbarItem task={{id: 'volume', icon: volume, displayName: 'Volume', hideName: true}}/>
+                <TaskbarItem task={{id: 'clock', icon: '', displayName: time, hideIcon: true}}/>
             </div>
         </footer>
     )
