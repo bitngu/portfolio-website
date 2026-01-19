@@ -11,6 +11,9 @@ export const Taskbar = (): React.ReactNode => {
      const updateTime = (): string => {
         const now = new Date();
         return now.toLocaleTimeString('en-US', {
+            month: 'short',
+            day: '2-digit',
+            year: 'numeric',
             hour: 'numeric',
             minute: '2-digit',
             hour12: true
@@ -51,7 +54,7 @@ export const Taskbar = (): React.ReactNode => {
             <div className="misc">
                 <TaskbarItem task={{id: 'network', icon: network, displayName:'Network', hideName: true}}/>
                 <TaskbarItem task={{id: 'volume', icon: volume, displayName: 'Volume', hideName: true}}/>
-                <TaskbarItem task={{id: 'clock', icon: '', displayName: time, hideIcon: true}}/>
+                <TaskbarItem task={{id: 'clock', icon: '', displayName: time.split('at')[1], hoverText: time, hideIcon: true }} />
             </div>
         </footer>
     )
