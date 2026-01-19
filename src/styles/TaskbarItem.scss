@@ -23,20 +23,27 @@
 
     .displayName {
         display: none;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        max-width: 4.5rem;
+        overflow: hidden;
     }
 
     &.active {
         .displayName {
-            display: block;
+            display: inline-block;
         }
     }
 }
 
 
 @media screen and (min-width: 768px) {
-    .taskbar-item {
-        .displayName {
-            display: block;
+    .active-apps {
+        .taskbar-item {
+            .displayName {
+                display: block;
+                max-width: calc(60% + 1rem);
+            }
         }
     }
 }

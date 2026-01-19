@@ -13,6 +13,7 @@ export interface TaskbarData {
     displayName: string;
     icon: string;
     subtasks?: TaskbarData[];
+    hoverText?: string;
     hideName?: boolean;
     hideIcon?: boolean;
     clickable?: boolean;
