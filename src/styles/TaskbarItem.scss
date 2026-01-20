@@ -21,6 +21,12 @@
         transform: translateY(1px);
     }
 
+    &.no-hover {
+        background: none !important;
+        transform: none !important;
+        cursor: default;
+    }
+
     .displayName {
         display: none;
         white-space: nowrap;

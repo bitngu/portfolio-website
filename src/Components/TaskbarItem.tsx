@@ -8,7 +8,7 @@ type TaskbarItemProps = {
 
 export const TaskbarItem = (props: TaskbarItemProps) => {
     return (
-        <div className={`taskbar-item ${props.task.id === appService.activeAppId ? 'active': ''}`} onClick={() => appService.addActiveApp(props.task)} title={props.task.hoverText ? props.task.hoverText : props.task.displayName}>
+        <div className={`taskbar-item ${props.task.id === appService.activeAppId ? 'active': ''} ${props.task.noHover ? 'no-hover' : ''}`} onClick={() => appService.addActiveApp(props.task)} title={props.task.hoverText ? props.task.hoverText : props.task.displayName}>
             {!props.task.hideIcon && <div className="icon-container">
                 <img src={props.task.icon} alt={props.task.displayName}></img>
             </div> }
