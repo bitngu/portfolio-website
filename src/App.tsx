@@ -4,6 +4,7 @@ import { BrowserRouter} from 'react-router-dom'
 import { Overlay } from './Views/Overlay'
 import { AppRoutes } from './Router'
 import { useEffect, useReducer } from 'react'
+import { MediaPlayer } from './Views/MediaPlayer'
 
 // eslint-disable-next-line react-refresh/only-export-components
 export let forceUpdateTrigger = () => {};
@@ -21,6 +22,7 @@ function App() {
   return (
     <BrowserRouter>
       <Overlay/>
+      <MediaPlayer />
       <AppRoutes/>
     </BrowserRouter>
   )

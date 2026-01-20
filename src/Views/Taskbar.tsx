@@ -3,13 +3,15 @@ import { useEffect, useState } from "react";
 import { TaskbarItem } from "../Components/TaskbarItem"
 import network from '/assets/taskbar/network.png'
 import volume from '/assets/taskbar/volume.png'
+import matthew from '/assets/taskbar/kitty.png'
 import { StartMenu } from './StartMenu';
-import { appService, calculatorApp, msnApp, paintApp} from '../classes/AppData';
+import { appService, calculatorApp, notepadApp, paintApp} from '../classes/AppData';
 
 
 export const Taskbar = (): React.ReactNode => {
-     const updateTime = (): string => {
-        const now = new Date();
+
+     const fullFormat = (time: string): string => {
+        const now = new Date(time);
         return now.toLocaleTimeString('en-US', {
             month: 'short',
             day: '2-digit',
@@ -20,11 +22,20 @@ export const Taskbar = (): React.ReactNode => {
         });
     }
 
-    const [time, setTime] = useState(updateTime());
+    const timeFormat = (time: string): string => {
+        const now = new Date(time);
+        return now.toLocaleTimeString('en-US', {
+            hour: 'numeric',
+            minute: '2-digit',
+            hour12: true
+        });
+    }
+
+    const [time, setTime] = useState(new Date().toISOString());
 
     useEffect(() => {
         const intervalID = setInterval(() => {
-            setTime(updateTime);
+            setTime(new Date().toISOString());
         }, 1000)
 
         return () => {
@@ -41,7 +52,7 @@ export const Taskbar = (): React.ReactNode => {
             <div className="app-list">
                 <StartMenu onClick={startMenuClick}/>
                 <div className='pinned-items'>
-                    {[msnApp, calculatorApp, paintApp].map(app => {
+                    {[notepadApp, calculatorApp, paintApp].map(app => {
                         return <TaskbarItem key={app.id + 'pinned-item'} task={{...app, hideName: true}}/>
                     })}
                 </div>
@@ -51,10 +62,13 @@ export const Taskbar = (): React.ReactNode => {
                     })}
                 </div>
             </div>
+            <div className="feline-buddy">
+                <TaskbarItem task={{id: 'matthew', icon: matthew, displayName:'Matthew', hideName: true, clickable: false, noHover: true}}/>
+            </div>
             <div className="misc">
-                <TaskbarItem task={{id: 'network', icon: network, displayName:'Network', hideName: true}}/>
-                <TaskbarItem task={{id: 'volume', icon: volume, displayName: 'Volume', hideName: true}}/>
-                <TaskbarItem task={{id: 'clock', icon: '', displayName: time.split('at')[1], hoverText: time, hideIcon: true }} />
+                <TaskbarItem task={{id: 'network', icon: network, displayName:'Network', hideName: true, noHover: true}}/>
+                <TaskbarItem task={{id: 'volume', icon: volume, displayName: 'Volume', hideName: true, noHover: true}}/>
+                <TaskbarItem task={{id: 'clock', icon: '', displayName: timeFormat(time), hoverText: fullFormat(time), hideIcon: true, noHover: true }} />
             </div>
         </footer>
     )

@@ -5,6 +5,7 @@ import ie from '/assets/taskbar/internet_explorer.png'
 import recycleBin from '/assets/taskbar/recycle_bin.webp'
 import calculator from '/assets/taskbar/calculator.png'
 import paint from '/assets/taskbar/paint.png'
+import notepad from '/assets/taskbar/notepad.png'
 import { forceUpdateTrigger } from '../App'
 
 
@@ -14,6 +15,7 @@ export interface TaskbarData {
     icon: string;
     subtasks?: TaskbarData[];
     hoverText?: string;
+    noHover?: boolean;
     hideName?: boolean;
     hideIcon?: boolean;
     clickable?: boolean;
@@ -27,6 +29,7 @@ export const ieApp = {id: 'ie', displayName: 'Internet Explorer', icon: ie};
 export const calculatorApp = {id: 'calculator', icon: calculator, displayName: 'Calculator'};
 export const paintApp = {id: 'paint', icon: paint, displayName: 'Paint'};
 export const msnApp = {id: 'msn', displayName: 'MSN', icon: msn, clickable: false};
+export const notepadApp = {id: 'notepad', displayName: 'Notepad', icon: notepad, clickable: false};
 
 
 class AppData {
