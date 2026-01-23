@@ -2,6 +2,7 @@
     background-color: transparent;
     position: relative;
     pointer-events: none;
+    z-index: 9998;
 
     .hr-container {
         position: absolute;
@@ -12,7 +13,6 @@
             height: 1px;
             margin-bottom: 2px;
             opacity: 0.1;
-            z-index: 9999;
             background: linear-gradient(to top,rgba(0, 0, 0, 0.00) 0%,rgba(0, 0, 0, 1) 45%,rgba(0, 0, 0, 0.00) 100%);
             
             &.even {
@@ -52,8 +52,6 @@
         opacity: 0.35;
         position: absolute;
         bottom: 0;
-        z-index: 9998;
-
         animation-name: upDown;
         animation-duration: 12s;
         animation-delay: 3s;

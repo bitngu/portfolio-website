@@ -1,0 +1,25 @@
+.window {
+    position: absolute;
+    left: 25%;
+
+    &.active {
+        z-index: 9000;
+    }
+    &.windows-media-player {
+        max-width: 80%;
+    }
+    
+    .window-body {
+        background-color: rgb(189, 208, 231);
+    }
+
+}
+
+
+@media screen and (min-width: 768px) {
+    .window {
+        &.windows-media-player {
+            max-width: 60%;
+        }
+    }
+}

@@ -1,0 +1,81 @@
+.title-bar {
+    background: linear-gradient(180deg, #0997ff, #0053ee 8%, #0050ee 40%, #06f 88%, #06f 93%, #005bff 95%, #003dd7 96%, #003dd7);
+    padding: 3px 5px 3px 3px;
+    border-top: 1px solid #0831d9;
+    border-left: 1px solid #0831d9;
+    border-right: 1px solid #001ea0;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 7px;
+    font-size: 13px;
+    text-shadow: 1px 1px #0f1089;
+    height: 21px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    &--content {
+        display: flex;
+        flex-direction: row;
+        gap: 0.25rem;
+        align-items: center;
+        padding-left: 0.25rem;
+        color: #FFF;
+        font-weight: 500;
+
+        .icon {
+            width: 1rem;
+        }
+    }
+
+    &--controls {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-right: 0.25rem;
+        gap: 0.125rem;
+
+        button {
+            min-width: 18px;
+            min-height: 18px;
+            background-repeat: no-repeat;
+            background-position: 50%;
+            box-shadow: none;
+            background-color: #0050ee;
+            border: none;
+        }
+
+        .minimize {
+            background-image: url('/assets/taskbar/minimize.svg');
+
+            &:hover {
+                background-image: url('/assets/taskbar/minimize-hover.svg');
+            } 
+            &:active {
+                background-image: url('/assets/taskbar/minimize-active.svg');
+            }
+        }
+
+        .expand {
+            background-image: url('/assets/taskbar/expand.svg');
+            &:hover {
+                background-image: url('/assets/taskbar/expand-hover.svg');
+            } 
+            &:active {
+                background-image: url('/assets/taskbar/expand-active.svg');
+            }
+        }
+
+        .close {
+            background-image: url('/assets/taskbar/close.svg');
+
+            &:hover {
+                background-image: url('/assets/taskbar/close-hover.svg');
+            }
+
+            &:active {
+                background-image: url('/assets/taskbar/close-active.svg');
+            }
+        }
+    }
+}

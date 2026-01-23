@@ -5,6 +5,8 @@ import { Overlay } from './Views/Overlay'
 import { AppRoutes } from './Router'
 import { useEffect, useReducer } from 'react'
 import { MediaPlayer } from './Views/MediaPlayer'
+import { WindowsMediaPlayer } from './Views/WindowsMediaPlayer'
+
 
 // eslint-disable-next-line react-refresh/only-export-components
 export let forceUpdateTrigger = () => {};
@@ -22,7 +24,9 @@ function App() {
   return (
     <BrowserRouter>
       <Overlay/>
-      <MediaPlayer />
+      {/* <MediaPlayer /> */}
+      {/* <Window /> */}
+      {/* <WindowsMediaPlayer /> */}
       <AppRoutes/>
     </BrowserRouter>
   )
@@ -58,5 +62,9 @@ export default App
 // and during on click for the desktop app; we just do 2nd step and add to the data
 // we define the onCLick(itemTask): void;
 //probably need to add an additional param: isopen
+
+// todo: fix draggability for windows object
+// when dragging, they should be able to grab the window title bar that grabs an enitre window
+// 
 
 

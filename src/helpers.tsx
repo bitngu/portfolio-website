@@ -17,6 +17,16 @@ export const getRandomId = (length: number = 16): string => {
   return Math.random().toString(36).substring(2, length + 2);
 };
 
+
+export const shuffle = (array: unknown[]) => {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
 export default {
     useWidth,
+    shuffle
 }
