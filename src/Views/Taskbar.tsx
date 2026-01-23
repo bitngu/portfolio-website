@@ -58,7 +58,7 @@ export const Taskbar = (): React.ReactNode => {
                 </div>
                 <div className='active-apps'>
                     {appService.activeApps.map(app => {
-                        return <TaskbarItem key={app.id + 'active-apps'} task={app}/>
+                        return <TaskbarItem key={app.id + 'active-apps'} task={app} />
                     })}
                 </div>
             </div>

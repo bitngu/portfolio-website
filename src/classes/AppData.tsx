@@ -6,7 +6,13 @@ import recycleBin from '/assets/taskbar/recycle_bin.webp'
 import calculator from '/assets/taskbar/calculator.png'
 import paint from '/assets/taskbar/paint.png'
 import notepad from '/assets/taskbar/notepad.png'
+import chess from '/assets/taskbar/chess.png'
+import minesweeper from '/assets/taskbar/minesweeper.png'
+import wmp from '/assets/taskbar/wmp.png'
+
+
 import { forceUpdateTrigger } from '../App'
+import { WindowsMediaPlayer } from '../Views/WindowsMediaPlayer'
 
 
 export interface TaskbarData {
@@ -19,6 +25,7 @@ export interface TaskbarData {
     hideName?: boolean;
     hideIcon?: boolean;
     clickable?: boolean;
+    windowApp?: React.ReactNode;
 }
 
 export const homeApp = {id: 'home', displayName: 'Home', icon: msn, clickable: true};
@@ -30,15 +37,18 @@ export const calculatorApp = {id: 'calculator', icon: calculator, displayName: '
 export const paintApp = {id: 'paint', icon: paint, displayName: 'Paint'};
 export const msnApp = {id: 'msn', displayName: 'MSN', icon: msn, clickable: false};
 export const notepadApp = {id: 'notepad', displayName: 'Notepad', icon: notepad, clickable: false};
+export const chessApp = {id: 'chess', displayName: 'Chess', icon: chess, clickable: false};
+export const minesweeperApp = {id: 'minesweeper', displayName: 'Minesweeper', icon: minesweeper, clickable: false};
+export const windowsMediaPlayer = {id: 'windows-media-player', displayName: 'Windows Media Player', icon: wmp, clickable: false, windowApp: <WindowsMediaPlayer/>};
 
 
 class AppData {
     private activeAppsStore: Map<string, TaskbarData> = new Map();
-    activeAppId = 'home';
+    activeAppId = 'windows-media-player';
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     constructor(_data?: Partial<AppData>) {
-        [homeApp, portfolioApp, mailApp].forEach(item => {
+        [windowsMediaPlayer, portfolioApp, mailApp].forEach(item => {
             this.activeAppsStore.set(item.id, item);
         })
     }

@@ -1,0 +1,464 @@
+.windows-media-player {
+    display: flex;
+    flex-direction: column;
+    max-width: 425px;
+    cursor: default;
+
+    .media-actions {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        border-bottom: 1px solid #111111;
+        background: linear-gradient(to bottom, rgb(120, 135, 160) 0%, rgb(74, 81, 99) 5%, rgb(18, 18, 18) 45%, rgb(61, 68, 105) 90%, rgb(0, 0, 0) 100%);
+
+        .nav-actions {
+            margin-left: 1rem;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            div {
+                width: 2rem;
+            }
+        }
+
+        &>button {
+            font-size: 1rem;
+            padding: 0.5rem;
+            margin: 0.25rem;
+            color: #FFF;
+            border-width: 0.125rem;
+            border-style: solid;
+            border-color: transparent;
+
+            &:hover,
+            &:active {
+                border-color: #FFF;
+            }
+        }
+
+        .ipad,
+        .web {
+            display: none;
+        }
+
+        .more-options {
+            width: 16px;
+
+            img {
+                object-fit: contain;
+            }
+        }
+    }
+
+    .media-content {
+        display: flex;
+        flex-direction: row;
+        max-height: 16rem;
+        background-color: rgb(239, 243, 250);
+
+        .wallpaper {
+
+            img {
+                object-fit: cover;
+            }
+        }
+
+        .media-playlist {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            min-width: 0;
+
+            &.ipad {
+                display: none;
+            }
+
+            .music-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+                margin-top: 1rem;
+                padding-bottom: 0.5rem;
+                margin-bottom: 0.5rem;
+                border-bottom: 0.5px;
+                border-bottom-style: solid;
+
+                .music-icon {
+                    width: 6rem;
+                    height: 6rem;
+                    box-shadow: 5px 5px 5px;
+                    margin-bottom: 0.5rem;
+                }
+
+                p {
+                    width: 80%;
+                    text-align: center;
+                    text-wrap: wrap;
+                    color: rgb(71, 149, 214)
+                }
+            }
+
+            .playlist-content {
+                display: flex;
+                flex-direction: column;
+                gap: 0.125rem;
+                margin: 0 0.5rem;
+                padding: 0.5rem 0;
+                overflow-y: scroll;
+                font-size: 0.75rem;
+
+                .media-info {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+
+                    :first-child {
+                        width: 80%;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                    }
+
+                    &:hover,
+                    &:active,
+                    &.active {
+                        background-color: lightgray;
+                    }
+                }
+            }
+        }
+    }
+
+    .track-filler {
+        position: relative;
+        margin: 0.5rem 1rem;
+
+        .progress {
+            position: absolute;
+            height: 0.25rem;
+            border-radius: 0.125rem;
+            user-select: none;
+
+            background: linear-gradient(to right, #0053ee 8%, #0050ee 40%, #005bff 92%, #FFF 100%);
+            box-shadow: 0 0 8px rgba(16, 129, 189, 0.6);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        input[type="range"] {
+            appearance: none;
+            -webkit-appearance: none;
+            background: transparent;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            margin: 0;
+
+            &::-webkit-slider-thumb {
+                appearance: none;
+                -webkit-appearance: none;
+                height: 0.25rem;
+                width: 0.25rem;
+                background-color: transparent;
+            }
+
+            &::-webkit-slider-runnable-track {
+                appearance: none;
+                -webkit-appearance: none;
+                width: 100%;
+                height: 0.25rem;
+                border-radius: 0.125rem;
+                box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.8),
+                    0 1px 0 rgba(255, 255, 255, 0.1);
+            }
+        }
+
+    }
+
+    .media-controls {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 0.5rem;
+        justify-content: center;
+
+        .song-info {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 0.5rem;
+            display: none;
+
+            .music-icon {
+                width: 2rem;
+
+                img {
+                    object-fit: contain;
+                }
+            }
+
+            .animation-wrapper {
+                width: 10rem;
+                overflow: hidden;
+
+                p {
+                    background-color: transparent;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                    animation: run-text 5s infinite ease-in-out;
+
+                    span {
+                        display: block;
+                        font-size: small;
+                        font-style: italic;
+                    }
+                }
+            }
+        }
+
+        .controls {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 0.25rem;
+            padding: 0.25rem 1rem;
+            border-style: solid;
+            border-radius: 2rem;
+            border-width: 1px;
+            border-color: rgb(161, 172, 189);
+            background-color: rgb(197, 214, 233);
+            box-shadow: inset 0px 1px 1px 1px rgba(0, 0, 0, 0.2);
+
+            button {
+                width: 1rem;
+                height: 1rem;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+            }
+
+            .shuffle {
+                &.ipad {
+                    display: none;
+                }
+
+                &.enable {
+                    background-image: url('/assets/taskbar/shuffle.png');
+                }
+
+                &.none {
+                    background-image: url('/assets/taskbar/shuffle-none.png');
+
+                }
+            }
+
+            .repeat {
+                position: relative;
+
+                &.ipad {
+                    display: none;
+                }
+
+                &.none {
+                    background-image: url('/assets/taskbar/repeat-none.png');
+                }
+
+                &.all {
+                    background-image: url('/assets/taskbar/repeat-all.png');
+                }
+
+                &.once {
+                    background-image: url('/assets/taskbar/repeat-once.png');
+                }
+
+                margin-right: 1rem;
+
+                &::after {
+                    position: absolute;
+                    top: 0;
+                    right: -0.5rem;
+                    content: '';
+                    width: 2px;
+                    height: 100%;
+                    background-color: #8D92AA;
+                }
+            }
+
+            .stop {
+                background-image: url('/assets/taskbar/stop.png');
+            }
+
+            .rewind {
+                background-image: url('/assets/taskbar/rewind.png');
+            }
+
+            .play {
+                width: 2.5rem;
+                height: 2.5rem;
+                background-image: url('/assets/taskbar/play.png');
+            }
+
+            .pause {
+                width: 2.5rem;
+                height: 2.5rem;
+                background-image: url('/assets/taskbar/pause.png');
+            }
+
+            .fast-forward {
+                background-image: url('/assets/taskbar/fast-foward.png');
+            }
+
+            .volume {
+                &.high {
+                    background-image: url('/assets/taskbar/media-volume-high.png');
+                }
+
+                &.low {
+                    background-image: url('/assets/taskbar/media-volume-low.png');
+                }
+
+                &.mute {
+                    background-image: url('/assets/taskbar/media-volume-mute.png');
+                }
+            }
+
+            .volume-slider {
+                &.ipad {
+                    display: none;
+                }
+
+                appearance: none;
+                -webkit-appearance: none;
+                background: transparent;
+                width: 4rem;
+
+                &::-webkit-slider-thumb {
+                    appearance: none;
+                    -webkit-appearance: none;
+                    height: .75rem;
+                    width: .75rem;
+                    border-radius: 0.5rem;
+                    margin-top: -0.25rem;
+                    background-color: #FFF;
+                }
+
+                &::-webkit-slider-runnable-track {
+                    appearance: none;
+                    -webkit-appearance: none;
+                    width: 100%;
+                    height: 0.25rem;
+                    border-radius: 0.125rem;
+                    background-color: #0883D9;
+                }
+            }
+        }
+
+        .help-actions {
+            &.ipad {
+                display: none;
+            }
+
+            .help {
+                width: 2rem;
+                height: 2rem;
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: cover;
+                background-image: url('/assets/taskbar/help.png');
+            }
+        }
+    }
+}
+
+
+@media screen and (min-width:768px) {
+    .windows-media-player {
+        max-width: 100%;
+
+        .media-actions {
+            .ipad {
+                display: block;
+            }
+        }
+
+        .media-content {
+            .wallpaper {
+                flex: 0 0 70%;
+            }
+
+            .media-playlist {
+                &.ipad {
+                    display: flex;
+                }
+            }
+        }
+
+        .media-controls {
+            .controls {
+                .volume-slider, .repeat, .shuffle {
+                    &.ipad {
+                        display: block;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width:1024px) {
+    .windows-media-player {
+
+        .media-actions {
+            .ipad {
+                display: block;
+            }
+
+            .web {
+                display: block;
+            }
+
+            .more-options {
+                display: none;
+            }
+        }
+
+        .media-content {
+            max-height: 24rem;
+        }
+
+        .media-controls {
+            justify-content: space-between;
+
+            .song-info {
+                &.ipad {
+                    display: flex;
+                }
+            }
+
+            .controls {
+                margin-right: 4rem;
+            }
+
+            .help-actions {
+                &.ipad {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+
+
+@keyframes run-text {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(110%);
+    }
+}
