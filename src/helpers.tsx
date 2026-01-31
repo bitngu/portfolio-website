@@ -26,7 +26,12 @@ export const shuffle = (array: unknown[]) => {
   return array;
 }
 
+export const getRandomInt = (num: number): number => {
+  return Math.floor(num * Math.random())
+}
+
 export default {
     useWidth,
-    shuffle
+    shuffle,
+    getRandomId
 }

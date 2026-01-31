@@ -1,6 +1,11 @@
 {
     "about": {
-        "me": "Software engineer with 3 YoE in QA and Frontend development.",
+        "me": "Hey! Welcome to my website. I am a software engineer with a background in frontend development and quality assurance. Much like this website, I started out not knowing what to do",
+        "journey":" It took me 3 years in undergrad before realizing that I love pogramming and developing software. I was first introduced to programming in my upper statistics course where we had to use R for statistical analysis and data visualization. I had a lot of fun learning and decided to continue exploring and gain knowledge. It wasn't until after completing the final project for my first computer science course, Introduction In Programing (ECS 10) that I wanted to pursue this path. The project was to develop a text-based version of the game Battleship. I had spent weeks working on it, trying to pass all the test cases but it was passing only 70% of the test cases. It was midnight, 8 hours left before it's due. I had gone over the logic so many times, debugged, and whiteboarded the steps. Eventually, after 5 hours, I had figured out my mistake and submitted. I saw all the tests color lit up to green. I was ecstatic, had so much adrenaline, and felt so proud of the hard work I did. That was when I knew I wanted to go into this profession.",
+        "website": "I wanted to include everything I love and grew up on. But thinking of a design to include my cats, childhood all while trying to showcase my skill was hard. That is when I thought of a nostalgia theme, to bring back old memories all while including everything that I cherish",
+        "email": "bitngu3@gmail.com",
+        "linkedin": "https://www.linkedin.com/in/bitngu/",
+        "github": "https://github.com/bitngu",
         "education": {
             "school": "University of California, Davis",
             "endDate": "June, 2022",

@@ -11,7 +11,7 @@ export const Overlay = () => {
         const handleResize = () => {setNumLines(Math.floor(window.innerHeight / 3))}
         document.addEventListener('resize', handleResize)
 
-        return document.removeEventListener('resize', handleResize);
+        return () => {document.removeEventListener('resize', handleResize)};
     }, []);
 
     return (<div className="overlay">

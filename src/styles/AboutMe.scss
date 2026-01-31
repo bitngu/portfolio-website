@@ -1,0 +1,69 @@
+.about-me {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    .banner {
+        position: relative;
+        p {
+            position: absolute;
+            bottom: 1rem;
+            right: 0.5rem;
+            background-color: transparent;
+        }
+    }
+
+    .intro {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+
+        .profile {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+
+            .img-container {
+                width: 12rem;
+                img {
+                    object-fit: contain;
+                }
+            }
+            a {
+                color: #1a00ff
+            }
+
+            button {
+                cursor: pointer;
+                text-align: start;
+                color: #1a00ff;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            .socials {
+                div {
+                    display: flex;
+                    justify-content: space-between;
+                }
+            }
+        }
+        .about {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+
+            h2 {
+                font-size: 1.25rem;
+                margin-bottom: 0.25rem;
+            }
+            h1 {
+                font-size: 1.75rem;
+                font-weight: 500;
+                margin-bottom: 1rem;
+            }
+        }
+    }
+}

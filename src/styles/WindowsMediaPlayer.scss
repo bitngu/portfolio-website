@@ -33,7 +33,7 @@
             border-color: transparent;
 
             &:hover,
-            &:active {
+            &:active, &.active {
                 border-color: #FFF;
             }
         }

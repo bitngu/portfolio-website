@@ -13,6 +13,7 @@ import wmp from '/assets/taskbar/wmp.png'
 
 import { forceUpdateTrigger } from '../App'
 import { WindowsMediaPlayer } from '../Views/WindowsMediaPlayer'
+import { AboutMe } from '../Views/AboutMe'
 
 
 export interface TaskbarData {
@@ -28,7 +29,7 @@ export interface TaskbarData {
     windowApp?: React.ReactNode;
 }
 
-export const homeApp = {id: 'home', displayName: 'Home', icon: msn, clickable: true};
+export const homeApp = {id: 'home', displayName: 'Home', icon: msn, clickable: true, windowApp: <AboutMe/>};
 export const portfolioApp = {id: 'portfolio', displayName: 'Portfolio', icon: documents, clickable: true};
 export const mailApp = {id: 'mail', displayName: 'Contact', icon: email, clickable: true}
 export const recycleApp = {id: 'recycleBin', displayName: 'Recycle Bin', icon: recycleBin, clickable: true};
@@ -39,7 +40,7 @@ export const msnApp = {id: 'msn', displayName: 'MSN', icon: msn, clickable: fals
 export const notepadApp = {id: 'notepad', displayName: 'Notepad', icon: notepad, clickable: false};
 export const chessApp = {id: 'chess', displayName: 'Chess', icon: chess, clickable: false};
 export const minesweeperApp = {id: 'minesweeper', displayName: 'Minesweeper', icon: minesweeper, clickable: false};
-export const windowsMediaPlayer = {id: 'windows-media-player', displayName: 'Windows Media Player', icon: wmp, clickable: false, windowApp: <WindowsMediaPlayer/>};
+export const windowsMediaPlayer = {id: 'windows-media-player', displayName: 'Windows Media Player', icon: wmp, clickable: true, windowApp: <WindowsMediaPlayer/>};
 
 
 class AppData {
