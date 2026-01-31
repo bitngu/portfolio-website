@@ -264,7 +264,7 @@ export const WindowsMediaPlayer = (): React.ReactNode => {
                         <img src={forward}></img>
                     </div>
                 </div>
-                <button> Now Playing </button>
+                <button className={`now-playing ${play ? 'active': ''}`}> Now Playing </button>
                 <button> Library </button>
                 <button className='ipad'> Rip </button>
                 <button className='ipad'> Burn </button>
