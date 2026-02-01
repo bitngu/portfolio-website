@@ -10,6 +10,7 @@ import ad4 from '/assets/about/ad-banner4.jpg'
 
 import { useEffect, useState } from 'react'
 import { getRandomInt } from '../helpers'
+import { Gallery } from './Gallery'
 
 
 
@@ -51,16 +52,18 @@ export const AboutMe = (): React.ReactNode => {
     return <div className="about-me">
         <div className='banner'>
             <img src={banner} />
-            <p> San Francisco Bay Area</p>
+            <h2>San Francisco Bay Area</h2>
+            <p>bitngu3@gmail.com</p>
         </div>
         <div className='intro'>
             <div className='profile'>
                 <div className='img-container'>
                     <img src={profile} />
                 </div>
-                <p>Available for hire</p>
-                <a href="mailto:bitngu3@gmail.com">bitngu3@gmail.com</a>
+                <h1> Bi Nguyen </h1>
+                <h2> Software Engineer </h2>
                 <div className='socials'>
+                    <h2>Socials</h2>
                     <div className='linkedin'>
                         <p>/in</p>
                         <button onClick={() => open(info.about.linkedin)}>@bitngu</button>
@@ -72,14 +75,13 @@ export const AboutMe = (): React.ReactNode => {
                 </div>
             </div>
             <div className='about'>
-                <h2>Software Engineer</h2>
-                <h1>Bi Nguyen</h1>
+                <h2>{info.about.intro}</h2>
                 <p>{info.about.me}</p>
                 <p>{info.about.journey}</p>
                 <p>{info.about.website}</p>
             </div>
             <AdBanner {...petAdNetwork[petAdIndex]}/>
         </div>
-
+        <Gallery />
     </div>
 }

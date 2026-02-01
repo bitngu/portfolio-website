@@ -26,10 +26,11 @@ export interface TaskbarData {
     hideName?: boolean;
     hideIcon?: boolean;
     clickable?: boolean;
+    showWindowMenu?: boolean;
     windowApp?: React.ReactNode;
 }
 
-export const homeApp = {id: 'home', displayName: 'Home', icon: msn, clickable: true, windowApp: <AboutMe/>};
+export const homeApp = {id: 'home', displayName: 'Home', icon: msn, clickable: true, showWindowMenu: true, windowApp: <AboutMe/>};
 export const portfolioApp = {id: 'portfolio', displayName: 'Portfolio', icon: documents, clickable: true};
 export const mailApp = {id: 'mail', displayName: 'Contact', icon: email, clickable: true}
 export const recycleApp = {id: 'recycleBin', displayName: 'Recycle Bin', icon: recycleBin, clickable: true};
