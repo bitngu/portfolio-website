@@ -65,7 +65,6 @@ export const WindowsMediaPlayer = (): React.ReactNode => {
             const seconds = time % 60
             return `${(mins < 10 ? '0' : '') + mins}: ${(seconds < 10 ? '0' : '') + seconds.toFixed(0)}`
         }
-        console.log(time);
         return '00: 00';
     }
 

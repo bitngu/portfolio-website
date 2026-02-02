@@ -27,7 +27,12 @@ export interface TaskbarData {
     hideIcon?: boolean;
     clickable?: boolean;
     showWindowMenu?: boolean;
+    minimize?: boolean;
     windowApp?: React.ReactNode;
+    windowPos?: {
+        top: number;
+        left: number;
+    }
 }
 
 export const homeApp = {id: 'home', displayName: 'Home', icon: msn, clickable: true, showWindowMenu: true, windowApp: <AboutMe/>};
@@ -63,12 +68,22 @@ class AppData {
         if (app.clickable) {
             this.activeAppsStore.set(app.id, app);
             this.activeAppId = app.id;
+            app.minimize = false;
             forceUpdateTrigger();
         }
     }
 
+    minimizeApp(app: TaskbarData) {
+        appService.activeAppId = '';
+        app.minimize = true;
+        forceUpdateTrigger();
+    }
+
+
     removeActiveApp(app: TaskbarData) {
         this.activeAppsStore.delete(app.id);
+        app.windowPos = undefined;
+        app.minimize = false;
         forceUpdateTrigger();
     }
 }

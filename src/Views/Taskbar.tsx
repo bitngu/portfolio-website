@@ -3,10 +3,22 @@ import { useEffect, useState } from "react";
 import { TaskbarItem } from "../Components/TaskbarItem"
 import network from '/assets/taskbar/network.png'
 import volume from '/assets/taskbar/volume.png'
-import matthew from '/assets/taskbar/kitty.png'
+import matthew from '/assets/taskbar/kitty-matthew.png'
+import robert from '/assets/taskbar/kitty-robert.png'
+import mrtabs from '/assets/taskbar/kitty-mrtabs.png'
+
 import { StartMenu } from './StartMenu';
 import { appService, calculatorApp, notepadApp, paintApp} from '../classes/AppData';
+import { getRandomInt } from '../helpers';
 
+
+const friends = [
+<TaskbarItem task={{id: 'matthew', icon: matthew, displayName:'Matthew', hideName: true, clickable: false, noHover: true}}/>,
+<TaskbarItem task={{id: 'robert', icon: robert, displayName:'Robert', hideName: true, clickable: false, noHover: true}}/>,
+<TaskbarItem task={{id: 'mrtabs', icon: mrtabs, displayName:'MrTabs', hideName: true, clickable: false, noHover: true}}/>
+]
+
+const chunkusMungus = friends[getRandomInt(friends.length)]
 
 export const Taskbar = (): React.ReactNode => {
 
@@ -63,7 +75,7 @@ export const Taskbar = (): React.ReactNode => {
                 </div>
             </div>
             <div className="feline-buddy">
-                <TaskbarItem task={{id: 'matthew', icon: matthew, displayName:'Matthew', hideName: true, clickable: false, noHover: true}}/>
+                {chunkusMungus}
             </div>
             <div className="misc">
                 <TaskbarItem task={{id: 'network', icon: network, displayName:'Network', hideName: true, noHover: true}}/>

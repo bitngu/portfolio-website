@@ -5,7 +5,14 @@
     height: 100dvh;
     background: no-repeat center url('/assets/taskbar/wallpaper.webp');
     position: relative;
-
+    cursor: default;
+     -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none;
+    
 
     #taskbar {
         margin-top: auto;
