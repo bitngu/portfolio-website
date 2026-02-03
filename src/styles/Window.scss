@@ -2,9 +2,7 @@
     position: fixed;
     top: 50%;
     left: 50%;
-    opacity: 1;
-    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-
+    
     &.start {
         transform: translate(-50%, -50%);
     }
@@ -25,6 +23,11 @@
         max-width: 80%;
         width: 428px;
     }
+
+    &.home {
+        max-width: 90%;
+        width: 600px;
+    }
     
     .window-body {
         background-color: rgb(189, 208, 231);
@@ -37,6 +40,20 @@
         &.windows-media-player {
             max-width: 60%;
             width: 800px;
+        }
+
+        &.home {
+            max-width: 90%;
+            width: 46rem;
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .window {
+
+        &.home {
+            width: 59rem;
         }
     }
 }

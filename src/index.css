@@ -50,3 +50,7 @@ table {
 html {
 	font-size: 16px;
 }
+
+:root {
+	--taskbar-height: 3rem;
+}

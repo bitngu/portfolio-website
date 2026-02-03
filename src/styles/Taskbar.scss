@@ -3,7 +3,7 @@
     color: #FFF;
     background-color: rgb(59, 119, 188);
     justify-content: space-between;
-    height: 3rem;
+    height: var(--taskbar-height);
     z-index: 9999;
 
     .app-list {

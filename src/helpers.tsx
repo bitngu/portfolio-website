@@ -30,6 +30,10 @@ export const getRandomInt = (num: number): number => {
   return Math.floor(num * Math.random())
 }
 
+export const numBetween = (min: number, max: number) => {
+  return Math.floor(Math.random() * (max - min) + min);
+}
+
 export default {
     useWidth,
     shuffle,
