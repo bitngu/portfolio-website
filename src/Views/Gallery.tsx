@@ -17,8 +17,8 @@ export const Gallery = (): React.ReactNode => {
     return <div className="gallery">
         <h1>Gallery</h1>
         <div className="collections">
-            {collections.map(item => {
-                return <div className='img-container'>
+            {collections.map((item, index) => {
+                return <div key={`collections--${index}`} className='img-container'>
                     <img src={item} />
                 </div>
             })}

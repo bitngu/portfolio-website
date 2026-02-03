@@ -1,4 +1,4 @@
-.ad-banner {
+.pet-ad-banner {
     position: relative;
     padding: 1rem;
     border-style: solid;
@@ -9,6 +9,7 @@
     align-items: center;
     background-color: #FFF;
     box-shadow: 5px 8px 7px #000;
+    cursor: pointer;
 
     .img-container {
         width: 6rem;

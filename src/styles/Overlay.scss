@@ -6,7 +6,8 @@
 
     .hr-container {
         position: absolute;
-        height: 100dvh;
+        max-height: 100dvh;
+        overflow: hidden;
         width: 100%;
 
         .hr {

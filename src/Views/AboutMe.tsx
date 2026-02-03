@@ -2,19 +2,21 @@ import '../styles/AboutMe.scss'
 import banner from '/assets/about/banner.avif'
 import profile from '/assets/about/profile.jpeg'
 import info from "../info.json"
-import { AdBanner, type AdBannerProps } from './AdBanner'
+import { PetAdBanner, type PetAdBannerProps } from './PetAdBanner'
 import ad1 from '/assets/about/ad-banner1.jpg'
 import ad2 from '/assets/about/ad-banner2.jpg'
 import ad3 from '/assets/about/ad-banner3.jpg'
 import ad4 from '/assets/about/ad-banner4.jpg'
-
 import { useEffect, useState } from 'react'
 import { getRandomInt } from '../helpers'
 import { Gallery } from './Gallery'
+import { AdobeAdBanner } from './AdobeAdBanner'
+import { MailAdBanner } from './MailAdBanner'
+import { McAfeeAdBanner } from './McAfeeAdBanner'
 
 
 
-const petAdNetwork: AdBannerProps[] = [
+const petAdNetwork: PetAdBannerProps[] = [
     {
         path: ad1,
         text: 'Adopt a pet in need.',
@@ -38,16 +40,31 @@ const petAdNetwork: AdBannerProps[] = [
     },
 ]
 
+const intrusiveAdNetwork: React.ReactNode[]= [<AdobeAdBanner/>, <MailAdBanner/>, <McAfeeAdBanner />]
+
 export const AboutMe = (): React.ReactNode => {
     
     const [petAdIndex, setPetAdIndex] = useState(getRandomInt(petAdNetwork.length));
+    const [intrusiveAdIndex, setIntrusiveAdIndex] = useState(getRandomInt(intrusiveAdNetwork.length));
+
+    console.log(intrusiveAdNetwork[intrusiveAdIndex]);
 
     useEffect(() => {
-        const id = setInterval(() => {
+        const id1 = setInterval(() => {
             setPetAdIndex(getRandomInt(petAdNetwork.length))
         }, 30000)
-        return () => clearInterval(id)
+
+        const id2 = setInterval(() => {
+            setIntrusiveAdIndex(getRandomInt(intrusiveAdNetwork.length))
+        }, 60000)
+
+        return () => {
+            clearInterval(id1)
+            clearInterval(id2)
+        }
     }, [])
+
+    console.log()
 
     return <div className="about-me">
         <div className='banner'>
@@ -80,8 +97,9 @@ export const AboutMe = (): React.ReactNode => {
                 <p>{info.about.journey}</p>
                 <p>{info.about.website}</p>
             </div>
-            <AdBanner {...petAdNetwork[petAdIndex]}/>
+            <PetAdBanner {...petAdNetwork[petAdIndex]}/>
         </div>
         <Gallery />
+        {intrusiveAdNetwork[intrusiveAdIndex]}
     </div>
 }

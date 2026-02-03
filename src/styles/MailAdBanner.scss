@@ -1,0 +1,74 @@
+.mail-ad-banner {
+    padding: 1rem;
+    cursor: pointer;
+
+    position: relative;
+       &::before {
+        content: 'Ad';
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-weight: 500;
+        color: #FFF;
+    }
+
+    .title {
+        font-size: 1.5rem;
+        color: #FFF;
+        background-color: skyblue;
+        font-weight: 400;
+        padding: 0.5rem 1rem;
+    }
+
+    .mail-content {
+        background-color: #FFF;
+        padding: 0.5rem;
+        border-style: solid;
+        border-width: 1px;
+        border-top-width: 0;
+        border-bottom-width: 0;
+
+        .content {
+            display: flex;
+            flex-direction: row;
+            gap: 0.5rem;
+            align-items: center;
+            font-size: 1rem;
+            
+            .img-wrapper {
+                width: 1.25rem;
+            }
+            .red{
+                color: rgb(209, 75, 65);
+            }
+            .blue {
+                color: rgb(29, 65, 160);
+            }
+            .green {
+                color: rgb(119, 199, 165);
+            }
+        }
+    }
+
+    .mailbox {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 0.125rem;
+        border-style: solid;
+        border-width: 1px;
+        border-top-width: 0;
+
+        div {
+            flex: 0 0 calc(50% - 1px); 
+            text-align: center;
+            padding: 0.5rem;
+            color: darkblue;
+            font-weight: 400;
+            background-color: aqua;
+            box-sizing: border-box; 
+            align-content: center;
+        }
+
+    }
+}

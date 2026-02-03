@@ -1,13 +1,13 @@
-import '../styles/AdBanner.scss'
+import '../styles/PetAdBanner.scss'
 
-export type AdBannerProps = {
+export type PetAdBannerProps = {
     path: string;
     text: string;
     link: string;
 }
 
-export const AdBanner = (props: AdBannerProps): React.ReactNode => {
-    return <div className="ad-banner" onClick={() => open(props.link)}>
+export const PetAdBanner = (props: PetAdBannerProps): React.ReactNode => {
+    return <div className="pet-ad-banner" onClick={() => open(props.link)}>
         <div className='img-container'>
             <img src={props.path}></img>
         </div>
