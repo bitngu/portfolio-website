@@ -10,14 +10,25 @@ export const Landing = (): React.ReactNode => {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        const handleKeyDown = (event: KeyboardEvent) => {
-              if (!loading && event.key === 'Enter') {
+        const action = () => {
+            if (!loading) {
                 setIntro(false);
                 setLoading(true);
             }
         }
 
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (event.key === 'Enter') {
+                action()
+            }
+        }
+
+        const handleClick = () => {
+            action();
+        }
+
         document.addEventListener('keydown', handleKeyDown);
+        document.addEventListener('click', handleClick);
       
         const id = setTimeout(() => {
             if (!intro) {
@@ -27,6 +38,7 @@ export const Landing = (): React.ReactNode => {
         
         return () => {
             document.removeEventListener('keydown', handleKeyDown);
+            document.removeEventListener('click', handleClick);
             clearTimeout(id)
         };
     // eslint-disable-next-line react-hooks/exhaustive-deps
