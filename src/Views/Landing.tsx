@@ -29,6 +29,7 @@ export const Landing = (): React.ReactNode => {
             document.removeEventListener('keydown', handleKeyDown);
             clearTimeout(id)
         };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [intro]);
 
 

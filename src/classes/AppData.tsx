@@ -51,13 +51,14 @@ export const windowsMediaPlayer = {id: 'windows-media-player', displayName: 'Win
 
 class AppData {
     private activeAppsStore: Map<string, TaskbarData> = new Map();
-    activeAppId = 'windows-media-player';
+    activeAppId = '';
 
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     constructor(_data?: Partial<AppData>) {
-        [windowsMediaPlayer, portfolioApp, mailApp].forEach(item => {
-            this.activeAppsStore.set(item.id, item);
-        })
+        // activeAppId = 'windows-media-player';
+        // [windowsMediaPlayer, portfolioApp, mailApp].forEach(item => {
+        //     this.activeAppsStore.set(item.id, item);
+        // })
     }
 
     get activeApps(): TaskbarData[] {
