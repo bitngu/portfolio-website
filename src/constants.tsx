@@ -205,13 +205,6 @@ export const audioCollections: MediaProps[] = [
         wallpaper: templeOfTimeWallpaper
     },
     {
-        name: 'Temple of time',
-        by: 'Maplestory',
-        path: templeOfTimeMaplestory,
-        cover: templeOfTimeCover,
-        wallpaper: templeOfTimeWallpaper
-    },
-    {
         name: 'Fireflies',
         by: 'Owl City',
         path: firefliesOwlCity,
