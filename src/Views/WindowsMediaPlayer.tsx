@@ -1,21 +1,17 @@
 import '../styles/WindowsMediaPlayer.scss'
-import loginWallpaper from '/assets/taskbar/maplestory-bgm2.png'
-import loginCover from '/assets/taskbar/maplestory-bgm1.png'
-import ElNathWallpaper from '/assets/taskbar/maplestory-bgm4.png'
-import ElNathCover from '/assets/taskbar/maplestory-bgm3.png'
-
-// [1,2] and [3,4]; 1 and 4 sue for the cover, and 
+import defaultCover from '/assets/MediaPlayer/default-cover.jpeg'
+import defaultWallpaper from '/assets/MediaPlayer/default-wallpaper.jpeg'
 import backArrow from '/assets/taskbar/back-arrow.png'
 import doubleRightArrow from '/assets/taskbar/double-right-arrow.png'
 import forward from '/assets/taskbar/forward-arrow.png'
 import music from '/assets/taskbar/music.avif'
-import mapleElNath from '/assets/audio/music/[MapleStory BGM] El Nath_ Snowy Village.mp3'
-import mapleLogin from '/assets/audio/music/[MapleStory BGM] Login.mp3'
+
 import { useEffect, useRef, useState, type ChangeEvent, type SyntheticEvent } from 'react'
 import { shuffle } from '../helpers'
+import { audioCollections } from '../constants'
 
 
-type MediaProps = {
+export type MediaProps = {
     name: string;
     by: string;
     path: string;
@@ -32,27 +28,11 @@ const enum RepeatStatus {
     Once
 }
 
-const songs: MediaProps[] = [
-    {
-        name: 'El Nath Snowy Village',
-        by: 'Maplestory',
-        path: mapleElNath,
-        cover: ElNathCover,
-        wallpaper: ElNathWallpaper
-    },
-    {
-        name: 'Login Theme',
-        by: 'Maplestory',
-        path: mapleLogin,
-        cover: loginCover,
-        wallpaper: loginWallpaper
-    }
-]
 
 export const WindowsMediaPlayer = (): React.ReactNode => {
-    const [playlist, setPlaylist] = useState<MediaProps[]>(songs);
+    const [playlist, setPlaylist] = useState<MediaProps[]>(audioCollections);
     const audioRef = useRef<HTMLAudioElement>(null);
-    const [currentSong, setCurrentSong] = useState<MediaProps>(songs[0]);
+    const [currentSong, setCurrentSong] = useState<MediaProps>(audioCollections[0]);
     const [play, setPlay] = useState(false);
     const [isSeeking, setIsSeeking] = useState(false);
     const [repeatStatus, setRepeatStatus] = useState<RepeatStatus>(RepeatStatus.None);
@@ -113,12 +93,12 @@ export const WindowsMediaPlayer = (): React.ReactNode => {
 
     const loopNext = () => {
         const currentIndex = playlist.findIndex(item =>  item.path === currentSong.path);
-        const nextIndex = (currentIndex + 1) % songs.length
+        const nextIndex = (currentIndex + 1) % audioCollections.length
          if (repeatStatus === RepeatStatus.All) {            
             setCurrentSong(playlist[nextIndex]);
             playAudio();
         } else if (repeatStatus === RepeatStatus.None) {
-            if (currentIndex + 1 === songs.length){
+            if (currentIndex + 1 === audioCollections.length){
                 onStop();
             } else {
                 setCurrentSong(playlist[nextIndex]);
@@ -139,7 +119,7 @@ export const WindowsMediaPlayer = (): React.ReactNode => {
         };
 
         const currentIndex = playlist.findIndex(item =>  item.path === currentSong.path);
-        const nextIndex = (currentIndex + 1) % songs.length
+        const nextIndex = (currentIndex + 1) % audioCollections.length
         setCurrentSong(playlist[nextIndex]);
         setPlay(true);
         playAudio();
@@ -151,7 +131,7 @@ export const WindowsMediaPlayer = (): React.ReactNode => {
         };
 
         const currentIndex = playlist.findIndex(item =>  item.path === currentSong.path);
-        const prevIndex = Math.abs(currentIndex - 1) % songs.length
+        const prevIndex = Math.abs(currentIndex - 1) % audioCollections.length
         setCurrentSong(playlist[prevIndex]);
         setPlay(true);
         playAudio();
@@ -233,7 +213,7 @@ export const WindowsMediaPlayer = (): React.ReactNode => {
     }
 
     useEffect(() => {
-        songs.forEach((song, index) => {
+        audioCollections.forEach((song, index) => {
             const audio = new Audio(song.path);
             if (audio) {
                 audio.onloadedmetadata = () => {
@@ -275,12 +255,12 @@ export const WindowsMediaPlayer = (): React.ReactNode => {
             </div>
             <div className="media-content">
                 <div className="wallpaper">
-                    <img src={currentSong.wallpaper} />
+                    <img src={currentSong.wallpaper || defaultWallpaper} />
                 </div>
                 <div className="media-playlist ipad">
                     <div className="music-content">
                         <div className="music-icon">
-                            <img src={currentSong.cover}></img>
+                            <img src={currentSong.cover || defaultCover} />
                         </div>
                         <p> {currentSong.name} </p>
                     </div>

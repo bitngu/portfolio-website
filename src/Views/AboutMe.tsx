@@ -42,12 +42,9 @@ const petAdNetwork: PetAdBannerProps[] = [
 
 const intrusiveAdNetwork: React.ReactNode[]= [<AdobeAdBanner/>, <MailAdBanner/>, <McAfeeAdBanner />]
 
-export const AboutMe = (): React.ReactNode => {
-    
+export const AboutMe = (): React.ReactNode => {    
     const [petAdIndex, setPetAdIndex] = useState(getRandomInt(petAdNetwork.length));
     const [intrusiveAdIndex, setIntrusiveAdIndex] = useState(getRandomInt(intrusiveAdNetwork.length));
-
-    console.log(intrusiveAdNetwork[intrusiveAdIndex]);
 
     useEffect(() => {
         const id1 = setInterval(() => {
@@ -63,8 +60,6 @@ export const AboutMe = (): React.ReactNode => {
             clearInterval(id2)
         }
     }, [])
-
-    console.log()
 
     return <div className="about-me">
         <div className='banner'>
