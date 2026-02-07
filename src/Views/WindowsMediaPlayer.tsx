@@ -86,7 +86,10 @@ export const WindowsMediaPlayer = (): React.ReactNode => {
 
     const onShuffle = () => {
         if (!isShuffle) {
-            setPlaylist(shuffle(playlist) as MediaProps[])
+            let newList = shuffle(playlist) as MediaProps[]
+            newList = newList.filter(song => song.path !== currentSong.path)
+            newList.unshift(currentSong);
+            setPlaylist(newList)
         }
         setShuffle(prev => !prev);
     }
@@ -131,7 +134,14 @@ export const WindowsMediaPlayer = (): React.ReactNode => {
         };
 
         const currentIndex = playlist.findIndex(item =>  item.path === currentSong.path);
-        const prevIndex = Math.abs(currentIndex - 1) % audioCollections.length
+        let prevIndex = 0
+
+        if (currentIndex - 1 < 0) {
+            prevIndex = playlist.length - 1
+        } else {
+            prevIndex = currentIndex - 1
+        }
+
         setCurrentSong(playlist[prevIndex]);
         setPlay(true);
         playAudio();
@@ -217,6 +227,9 @@ export const WindowsMediaPlayer = (): React.ReactNode => {
             const audio = new Audio(song.path);
             if (audio) {
                 audio.onloadedmetadata = () => {
+                    song.duration = audio.duration
+                    song.current_time = audio.currentTime
+
                     setPlaylist(prev => {
                         const newPlaylist = [...prev];
                         newPlaylist[index] = {
@@ -265,7 +278,7 @@ export const WindowsMediaPlayer = (): React.ReactNode => {
                         <p> {currentSong.name} </p>
                     </div>
                     <div className='playlist-content'>
-                        {playlist.map((song, index) => {
+                        {audioCollections.map((song, index) => {
                             return <div key={index} className={`media-info ${song.path === currentSong.path ? 'active' : ''}`} onClick={() => songClick(song)}>
                                 <span className='name'> {index + 1}. {song.name} </span>
                                 <span className='duration'> {convertTime(song.duration || 0)} </span>
